@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203085645) do
+ActiveRecord::Schema.define(version: 20161203112513) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20161203085645) do
     t.boolean  "is_active",                            default: true
     t.integer  "books_count",                          default: 0
     t.string   "type"
+    t.string   "email"
     t.index ["role_no"], name: "index_users_on_role_no", using: :btree
   end
 

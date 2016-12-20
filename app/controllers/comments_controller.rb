@@ -25,6 +25,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    #TODO Few things are yet to be added
+    #OPTIMIZE Optimization need to be done
+    #FIXME improve the code quality
     @comment = @article.comments.create(comment_params)
 
     respond_to do |format|

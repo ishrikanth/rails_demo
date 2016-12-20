@@ -21,6 +21,21 @@
     <%= f.text_area :body %>
   </div>
 
+  <h2>Comments</h2>
+<%= f.fields_for :comments do |ff| %>
+ 
+    <%= ff.label :commenter %>
+    <%= ff.text_field :commenter %>
+
+    <% if ff.object.persisted? %>
+      <%= ff.check_box :_destroy %>
+      <%= ff.label :_destroy, "Destroy" %>
+    <% end %>
+    <%end%>
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

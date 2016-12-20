@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
+
 
 <table>
   <thead>
@@ -27,3 +27,6 @@
 <br>
 
 <%= link_to 'New Blog', new_blog_path %>
+<%content_for :heading do%>
+<h1>Blogs</h1>
+<%end%>

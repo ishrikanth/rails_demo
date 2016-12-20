@@ -30,4 +30,8 @@ class Book < ApplicationRecord
   		errors.add(:publication, "Not a Valid")
   	end
   end
+
+  def self.test
+    p "hi"
+  end
 end

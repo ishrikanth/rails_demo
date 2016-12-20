@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  force_ssl only: [:new]
+  #force_ssl only: [:new]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -13,15 +13,18 @@ class UsersController < ApplicationController
     #           type: "application/pdf")}
     #   # => end
     # end
+
+    logger.info ENV["GMAIL_PASSWORD_DEMO"]
+    logger.info ENV.inspect
     @users = User.all
-    logger.info request.headers["test"]
-    logger.info request.method
-    logger.info request.get?
-    logger.info request.format
-    logger.info request.query_string
-    response.content_type="text/html"
-    response.headers["location"] = "/"
-    response.status="404"
+    # logger.info request.headers["test"]
+    # logger.info request.method
+    # logger.info request.get?
+    # logger.info request.format
+    # logger.info request.query_string
+    # response.content_type="text/html"
+    # response.headers["location"] = "/"
+    # response.status="404"
   end
 
   # GET /users/1
@@ -46,6 +49,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        UserMailer.welcome_email(@user).deliver_later
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
         format.pdf { render :pdf,send_file("home/shrikanth/projects/demo/public/test.pdf",
@@ -93,6 +97,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name,:email)
     end
 end

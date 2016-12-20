@@ -1,0 +1,12 @@
+de:
+  hello: "Hallo Welt"
+  currency: "%{price}€"
+  welcome: "<b>Herzlich willkommen</b>"
+  inbox:
+    one: "Eine Nachricht"
+    other: "%{count} Nachrichten"
+  articles:
+    index:
+      title: "Artikel"
+
+

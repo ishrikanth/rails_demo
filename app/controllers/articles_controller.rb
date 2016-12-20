@@ -4,7 +4,14 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    p "Break 1"
+    @articles = Article.find_recent
+    test_method
+    p "Break 2"
+  end
+
+  def test_method
+    p "ddd"
   end
 
   # GET /articles/1
@@ -12,9 +19,12 @@ class ArticlesController < ApplicationController
   def show
   end
 
-  # GET /articles/new
+   # GET /articles/new
   def new
     @article = Article.new
+    3.times do
+     @comment= @article.comments.build
+    end
   end
 
   # GET /articles/1/edit
@@ -69,6 +79,8 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body,comments_attributes:[:commenter,:id,:_destroy])
     end
+
+
 end

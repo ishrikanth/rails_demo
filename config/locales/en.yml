@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  currency: "$%{price}"
+  welcome: "<b>Welcome</b>"
+  welcome_html: "<b>Welcome</b>"
+  inbox:
+    one: "One message"
+    other: "%{count} messages"
+  welcomes:
+   html: "<b>Welcome</b>"
+  articles:
+    index:
+      title:"Article"
+

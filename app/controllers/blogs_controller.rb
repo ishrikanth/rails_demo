@@ -1,10 +1,16 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  #layout :choose_layout
+
 
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    # render plain: "OK"
+    #render html: "<strong>Test</strong>".html_safe
+    # render layout: false, status: :not_found
+    #head :not_found, location: "test"
   end
 
   # GET /blogs/1

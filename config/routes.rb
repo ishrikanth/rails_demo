@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+require 'sidekiq/web'
+mount Sidekiq::Web => "/sidekiq"
  get :user_profiles, to: redirect("/blogs")
 
   resources :labs
